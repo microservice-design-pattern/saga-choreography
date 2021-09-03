@@ -23,6 +23,7 @@ public class OrderService {
     public PurchaseOrder createOrder(OrderRequestDto orderRequestDto) {
         PurchaseOrder purchaseOrder = orderRepository.save(dtoToEntity(orderRequestDto));
         //publish kafka event with status ORDER_CREATED
+        orderRequestDto.setOrderId(purchaseOrder.getId());
         orderStatusPublisher.publishOrderEvent(orderRequestDto, OrderStatus.ORDER_CREATED);
         return purchaseOrder;
     }
@@ -33,7 +34,7 @@ public class OrderService {
 
     private PurchaseOrder dtoToEntity(final OrderRequestDto dto) {
         PurchaseOrder purchaseOrder = new PurchaseOrder();
-        purchaseOrder.setId(dto.getOrderId());
+       // purchaseOrder.setId(dto.getOrderId());
         purchaseOrder.setProductId(dto.getProductId());
         purchaseOrder.setUserId(dto.getUserId());
         purchaseOrder.setOrderStatus(OrderStatus.ORDER_CREATED);

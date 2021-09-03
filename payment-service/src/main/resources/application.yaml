@@ -3,6 +3,6 @@ spring.cloud.stream:
     definition: paymentProcessor
   bindings:
     paymentProcessor-in-0:
-      destination: order-event1
+      destination: order-event
     paymentProcessor-out-0:
-      destination: payment-event1
+      destination: payment-event

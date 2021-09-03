@@ -10,7 +10,7 @@ import java.util.UUID;
 @NoArgsConstructor
 public class PaymentRequestDto {
 
-    private UUID orderId;
+    private Integer orderId;
     private Integer userId;
     private Integer amount;
 }

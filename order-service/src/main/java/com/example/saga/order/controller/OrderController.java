@@ -18,7 +18,7 @@ public class OrderController {
 
     @PostMapping
     public PurchaseOrder createOrder(@RequestBody OrderRequestDto orderRequestDto) {
-        orderRequestDto.setOrderId(UUID.randomUUID());
+        //orderRequestDto.setOrderId(UUID.randomUUID());
         return orderService.createOrder(orderRequestDto);
     }
 

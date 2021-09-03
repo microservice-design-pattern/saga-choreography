@@ -23,9 +23,9 @@ public class OrderStatusUpdateEventHandler {
     private OrderStatusPublisher orderStatusPublisher;
 
     @Transactional
-    public void updateOrder(final UUID id, Consumer<PurchaseOrder> consumer) {
+    public void updateOrder(final Integer id, Consumer<PurchaseOrder> consumer) {
         System.out.println("ORDER-SERVICE OrderStatusUpdateEventHandler updateOrder() method called...");
-        repository.findAll();//this is just a fake call otherwise spring data jpa findById(UUID) will not work .
+        //repository.findAll();//this is just a fake call otherwise spring data jpa findById(UUID) will not work .
         this.repository
                 .findById(id)
                 .ifPresent(consumer.andThen(this::updateOrder));

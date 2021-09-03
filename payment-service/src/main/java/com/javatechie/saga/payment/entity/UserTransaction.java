@@ -15,7 +15,7 @@ import java.util.UUID;
 public class UserTransaction {
 
     @Id
-    private UUID orderId;
+    private Integer orderId;
     private int userId;
     private int amount;
 

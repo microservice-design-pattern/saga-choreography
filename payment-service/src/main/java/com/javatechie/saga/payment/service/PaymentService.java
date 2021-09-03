@@ -53,8 +53,7 @@ public class PaymentService {
 
     @Transactional
     public void cancelOrderEvent(OrderEvent orderEvent) {
-        transactionRepository.findAll();//this is just a fake call otherwise spring data jpa findById(UUID) will not work
-        this.transactionRepository.findById(orderEvent.getOrderRequestDto().getOrderId())
+             this.transactionRepository.findById(orderEvent.getOrderRequestDto().getOrderId())
                 .ifPresent(ut -> {
                     this.transactionRepository.delete(ut);
                     this.balanceRepository.findById(ut.getUserId())

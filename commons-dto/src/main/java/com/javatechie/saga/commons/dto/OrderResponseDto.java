@@ -10,7 +10,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderResponseDto {
-    private UUID orderId;
+    private Integer orderId;
     private Integer userId;
     private Integer productId;
     private Integer amount;
